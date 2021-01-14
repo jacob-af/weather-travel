@@ -16,53 +16,38 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-4 bg-light">
-                <div class='form-inline'>
+                <div class='form form-inline'>
                     <div class="form-group mb-2">
                         <label for="" class="sr-only">Search</label>
-                        <input class='form-control-plaintext' placeholder="Enter a city" />
+                        <input class='form-control-plaintext' placeholder="Enter a city" id='searchField' />
                     </div>
-                    <button type='submit' class="btn">???</button>
+                    <button type='submit' class="btn" id="search-btn">Search</button>
                 </div>
-                <div class='srchBtns'>
-                    boop
+                <div class='search-btns'>
+
                 </div>
             </div>
             <div class="col-8">
                 <div class='today'>
-                    <div>City, date, icon</div>
-                    <div>temperature: </div>
-                    <div>humidity</div>
-                    <div>uv index with color</div>
+                    <div><span class='city'>City</span> <span class='date'></span> <img src='' class='icon'></div>
+                    <div>Temperature: <span class="temp"></span></div>
+                    <div>humidity: <span class="humidity"></span></div>
+                    <div>UV: <span class="badge uv-index"></span></div>
                 </div>
-                <div class="row">
-                    5 day forecast
-                    <div class="col-2 fiveDay">
-                        One
-                    </div>
-                    <div class="col-2 fiveDay">
-                        Two
-                    </div>
-                    <div class="col-2 fiveDay">
-                        three
-                    </div>
-                    <div class="col-2 fiveDay">
-                        four
-                    </div>
-                    <div class="col-2 fiveDay">
-                        five
-                    </div>
+                5 day forecast
+                <div class="row" id="five-day">
 
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 
