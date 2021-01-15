@@ -12,29 +12,28 @@
 </head>
 
 <body>
-    <header>Awesome Weather Dashboard</header>
-    <div class="container-fluid">
+    <header>AWESOME WEATHER DASHBOARD</header>
+    <div class="container">
         <div class="row">
-            <div class="col-4 bg-light">
-                <div class='form form-inline'>
-                    <div class="form-group mb-2">
-                        <label for="" class="sr-only">Search</label>
-                        <input class='form-control-plaintext' placeholder="Enter a city" id='searchField' />
+            <div class="col-3 search-col">
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input type="search" id="searchField" class="form-control-lg" placeholder="Enter a city" />
                     </div>
-                    <button type='submit' class="btn" id="search-btn">Search</button>
+                    <button type="button" class="btn btn-success" id="search-btn">
+                        SEARCH
+                    </button>
                 </div>
-                <div class='search-btns'>
-
-                </div>
+                <div class="search-btns"></div>
             </div>
             <div class="col-8">
                 <div class='today'>
                     <div><span class='city'>City</span> <span class='date'></span> <img src='' class='icon'></div>
-                    <div>Temperature: <span class="temp"></span></div>
+                    <div>Temperature: <span class="temp"></span><span>&#x2109;</span></div>
                     <div>humidity: <span class="humidity"></span></div>
                     <div>UV: <span class="badge uv-index"></span></div>
                 </div>
-                5 day forecast
+                <h1>5 DAY FORECAST</h1>
                 <div class="row" id="five-day">
 
                 </div>

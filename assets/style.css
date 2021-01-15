@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+body {
+    font-family: 'VT323';
+    background-image: url("./laserbg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 16px;
+    color: #1E1D3D;
+}
+
+header, h1 {
+    font-size: 40px;
+    text-align: center;
+    color: #FEFF38;
+}
+
+.input-group {
+    transform: skew(5deg);
+    margin: 10px auto;
+}
+
+#search-btn {
+    background-color: #2F61AE
+}
+
+.btn-holder {
+    border: 1px solid#2F61AE;
+    transform: skew(5deg);
+    margin: 10px 0;
+}
+
+.saveBtn {
+    font-size: 24px;
+    width: 100%;
+}
+
+.main {
+    border: 10px solid #29cc91;
+    margin: 5px;
+    background-color: #fA7bfa;
+}
+
+.col-3 {
+    font-size: 16px;
+    background-color: #F8C5F7;
+    border: 5px solid#2F61AE;
+    height: auto;
+    margin-right: 20px;
+}
+
+.form {
+    padding: 5px auto;
+    font-size: 20px;
+}
+
+.today, .card {
+    background-color: #C1EEF7;
+    border: 5px solid#856294;
+    margin: 5px auto;
+    transform: skew(5deg);
+}
+
+.today {
+    font-size: 36px;
+}
