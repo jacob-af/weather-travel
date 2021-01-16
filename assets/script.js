@@ -16,7 +16,7 @@ $(document).ready(function () {
   };
 
   const getWeatherData = (searchTerm) => {
-    $("#five-day").empty();
+    $(".five-day").empty();
     $.ajax({
       url: `https://api.openweathermap.org/data/2.5/forecast?q=${searchTerm}&appid=${apiKey}`,
       method: "GET",
