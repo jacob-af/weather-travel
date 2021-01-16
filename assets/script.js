@@ -18,13 +18,14 @@ $(document).ready(function () {
   const getWeatherData = (searchTerm) => {
     $("#five-day").empty();
     $.ajax({
-      url: `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=${apiKey}`,
+      url: `https://api.openweathermap.org/data/2.5/forecast?q=${searchTerm}&appid=${apiKey}`,
       method: "GET",
     }).then(function (data) {
       console.log(data);
-      let lat = data.coord.lat;
-      let long = data.coord.lon;
-      $(".city").html(searchTerm);
+      let lat = data.city.coord.lat;
+      let long = data.city.coord.lon;
+      let city = data.city.name.toUpperCase() + ", " + data.city.country;
+      $(".city").html(city);
       $.ajax({
         url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly&appid=${apiKey}`,
         method: "GET",
@@ -74,16 +75,16 @@ $(document).ready(function () {
     );
     $(iconDiv).html(icon);
     let dateDiv = $("<div>")
-      .addClass("five-day-date")
+      .addClass("five-day-text")
       .text(dayjs.unix(day.dt).format("ddd, MMM D"));
     let tempDiv = $("<div>")
-      .addClass("five-day-temp")
+      .addClass("five-day-text")
       .text(Math.floor((day.temp.day - 273) * 1.8 + 33));
     let degree = $("<span>").html("&#x2109;");
     $(tempDiv).append(degree);
-    let humidityDiv = $("<div>")
-      .addClass("five-day-humiditiy")
-      .text(day.humidity);
+    let humidityDiv = $("<div>").addClass("five-day-text").text("Humidity: ");
+    let humiditySpan = $("<span>").html(day.humidity);
+    $(humidityDiv).append(humiditySpan);
     $(dayColumn).append(iconDiv, dateDiv, tempDiv, humidityDiv);
     $("#five-day").append(dayColumn);
   };

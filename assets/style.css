@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 body {
     font-family: 'VT323';
+    background-color: #850099;
     background-image: url("./laserbg.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -10,7 +11,7 @@ body {
     filter: blur(1px);
 }
 
-header, h1 {
+header, h1, a {
     font-size: 40px;
     color: #FEFF38;
 }
@@ -23,6 +24,11 @@ h1 {
     position: absolute;
     margin-top: 20px;
     transform: rotate(20deg);
+}
+
+.contact {
+    margin-left: 250px;
+    margin-top: 120px;
 }
 
 .banner {
@@ -60,10 +66,10 @@ h1 {
 }
 
 .search-col {
+    display: block;
     font-size: 16px;
     background-color: #fb8dfa;
     border: 5px solid#850099;
-    height: auto;
     margin-top: 60px;
     margin-right: 40px;
     transform: skew(-5deg);
@@ -87,14 +93,58 @@ h1 {
 
 .today {
     font-size: 36px;
+    padding-left: 10px
 }
 
 .card {
+    font-size: 18px;
     transform: rotate(20deg);
     transform: skew(-5deg);
+}
+
+.five-day-text {
+    padding-left: 5px;
 }
 
 #five-day {
     margin-top: 60px;
     transform: rotate(-20deg);
+}
+
+.fa {
+    font-size: 30px;
+    width: 25px;
+    text-decoration: none;
+    color: #FEFF38;
+}
+
+@media screen and (max-width: 520px) {
+    h1 {
+        transform: rotate(0deg);
+    }
+    .banner {
+        display: none;
+    }
+    .input-group {
+        transform: skew(0deg);
+    }
+    .btn-holder {
+        transform: skew(0deg);
+    }
+    .search-col {
+        margin-top: 20px;
+        margin-right: 5px;
+        transform: skew(0deg);
+    }
+    .today, .card {
+        transform: skew(0deg);
+    }
+    #five-day {
+        margin-top: 60px;
+        transform: rotate(0deg);
+    }
+    .contact {
+        margin-left: 0px;
+        margin-top: 0px;
+    }
 }
