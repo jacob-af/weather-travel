@@ -14,15 +14,12 @@ body {
 header, h1, a {
     font-size: 40px;
     color: #FEFF38;
-}
-
-header {
     text-align: center;
 }
 
 h1 {
     position: absolute;
-    margin-top: 20px;
+    margin-top: 30px;
     transform: rotate(20deg);
 }
 
@@ -59,16 +56,9 @@ h1 {
     width: 100%;
 }
 
-.main {
-    border: 10px solid #00cc91;
-    margin: 5px;
-    background-color: #ff00ff;
-}
-
 .search-col {
     display: block;
     font-size: 16px;
-    background-color: #fb8dfa;
     border: 5px solid#850099;
     margin-top: 60px;
     margin-right: 40px;
@@ -106,8 +96,8 @@ h1 {
     padding-left: 5px;
 }
 
-#five-day {
-    margin-top: 60px;
+.five-day {
+    margin-top: 73px;
     transform: rotate(-20deg);
 }
 
@@ -132,7 +122,7 @@ h1 {
         transform: skew(0deg);
     }
     .search-col {
-        margin-top: 20px;
+        margin-top: 5px;
         margin-right: 5px;
         transform: skew(0deg);
     }
@@ -140,7 +130,7 @@ h1 {
         transform: skew(0deg);
     }
     #five-day {
-        margin-top: 60px;
+        margin-top: 80px;
         transform: rotate(0deg);
     }
     .contact {

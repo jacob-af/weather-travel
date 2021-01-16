@@ -80,13 +80,13 @@ $(document).ready(function () {
     let tempDiv = $("<div>")
       .addClass("five-day-text")
       .text(Math.floor((day.temp.day - 273) * 1.8 + 33));
-    let degree = $("<span>").html("&#x2109;");
+    let degree = $("<span>").html("&#176;F");
     $(tempDiv).append(degree);
     let humidityDiv = $("<div>").addClass("five-day-text").text("Humidity: ");
     let humiditySpan = $("<span>").html(day.humidity);
     $(humidityDiv).append(humiditySpan);
     $(dayColumn).append(iconDiv, dateDiv, tempDiv, humidityDiv);
-    $("#five-day").append(dayColumn);
+    $(".five-day").append(dayColumn);
   };
 
   const setUV = (uvIndex) => {
