@@ -42,11 +42,11 @@ h1 {
 }
 
 #search-btn {
-    background-color: #2F61AE
+    background-color: #850099;
 }
 
 .btn-holder {
-    border: 1px solid#2F61AE;
+    border: 1px solid#850099;
     transform: skew(10deg);
     margin: 10px 0;
 }
@@ -129,7 +129,7 @@ h1 {
     .today, .card {
         transform: skew(0deg);
     }
-    #five-day {
+    .five-day {
         margin-top: 80px;
         transform: rotate(0deg);
     }

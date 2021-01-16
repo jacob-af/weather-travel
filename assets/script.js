@@ -1,10 +1,12 @@
-const apiKey = "9a0309c7af4ea96821317cd0a1f455e1";
-
 $(document).ready(function () {
+  const apiKey = "9a0309c7af4ea96821317cd0a1f455e1";
+
+  // loads saved searches or defaults to Detroit
   let savedSearches = JSON.parse(localStorage.getItem("savedsearches")) || [
     "DETROIT",
   ];
 
+  // Creates Buttons for Previous saved locations
   const addButton = (search) => {
     let saveDiv = $("<div>").addClass("btn-holder");
     let saveButton = $("<button>")
@@ -15,45 +17,55 @@ $(document).ready(function () {
     $(".search-btns").prepend(saveDiv);
   };
 
+  // API calls to Weather Twicw
   const getWeatherData = (searchTerm) => {
-    $(".five-day").empty();
     $.ajax({
       url: `https://api.openweathermap.org/data/2.5/forecast?q=${searchTerm}&appid=${apiKey}`,
       method: "GET",
-    }).then(function (data) {
-      console.log(data);
-      let lat = data.city.coord.lat;
-      let long = data.city.coord.lon;
-      let city = data.city.name.toUpperCase() + ", " + data.city.country;
-      $(".city").html(city);
-      $.ajax({
-        url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly&appid=${apiKey}`,
-        method: "GET",
-      }).then(function (response) {
-        console.log(response);
-        updateList(searchTerm);
-        renderSingleDay(response.current);
-        response.daily.splice(5);
-        response.daily.map((day) => renderDays(day));
-        savedSearches.splice(10);
-        localStorage.setItem("savedsearches", JSON.stringify(savedSearches));
+    })
+      .then(function (data) {
+        // Convert location data for one call API
+        let lat = data.city.coord.lat;
+        let long = data.city.coord.lon;
+        // Display City and Country
+        $(".five-day").empty();
+        let city = data.city.name.toUpperCase() + ", " + data.city.country;
+        $(".city").html(city);
+        $.ajax({
+          url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly&appid=${apiKey}`,
+          method: "GET",
+        }).then(function (response) {
+          updateList(searchTerm);
+          renderSingleDay(response.current);
+          //Adjust to only 5 day forecast
+          response.daily.splice(5);
+          response.daily.map((day) => renderDays(day));
+          localStorage.setItem("savedsearches", JSON.stringify(savedSearches));
+        });
+      })
+      .catch(function () {
+        $("#searchField").val("TRY AGAIN, DUDE!");
       });
-    });
   };
 
+  // Update list of Saved Searches
   const updateList = (searchTerm) => {
+    //Check if search is already in list
     let listIndex = savedSearches.findIndex((search) => search === searchTerm);
     if (listIndex === -1) {
-      savedSearches.push(searchTerm);
-      addButton(searchTerm);
+      if (savedSearches.length > 9) {
+        savedSearches.shift();
+      }
     } else {
       savedSearches.splice(listIndex, 1);
-      savedSearches.push(searchTerm);
-      $(".search-btns").empty();
-      savedSearches.map((search) => addButton(search));
     }
+    $(".search-btns").empty();
+    savedSearches.push(searchTerm);
+    savedSearches.map((search) => addButton(search));
+    localStorage.setItem("savedsearches", JSON.stringify(savedSearches));
   };
 
+  // Fill in data to main display
   const renderSingleDay = (data) => {
     $(".temp").text(Math.floor((data.temp - 273) * 1.8 + 33));
     $(".date").text(dayjs.unix(data.dt).format("dddd, MMMM D, YYYY h A"));
@@ -66,6 +78,7 @@ $(document).ready(function () {
     setUV(data.uvi);
   };
 
+  // Construct forecast card
   const renderDays = (day) => {
     let dayColumn = $("<card>").addClass("card singleDay");
     let iconDiv = $("<div>").addClass("five-day-icon");
@@ -89,6 +102,7 @@ $(document).ready(function () {
     $(".five-day").append(dayColumn);
   };
 
+  // Adjusts color for UV Index
   const setUV = (uvIndex) => {
     if (uvIndex < 2) {
       $(".badge").css("background-color", " #29cc91");
@@ -99,33 +113,19 @@ $(document).ready(function () {
     }
   };
 
+  // Event Listener for main search button
   $("#search-btn").on("click", (e) => {
     e.preventDefault();
     let searchTerm = $("#searchField").val().trim().toUpperCase();
     getWeatherData(searchTerm);
   });
-
+  // event listeners for saved searches
   $(".search-btns").on("click", (e) => {
     e.preventDefault();
     getWeatherData(e.target.id.toUpperCase());
   });
 
+  // Displays saved searches and makes initial API call
   savedSearches.map((search) => addButton(search));
   getWeatherData(savedSearches[savedSearches.length - 1]);
-
-  // function getLocation() {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(showPosition);
-  //   } else {
-  //     $(".location").html("Geolocation is not supported by this browser.");
-  //   }
-  // }
-
-  //   function showPosition(position) {
-  //     $("#location").html(
-  //       "Latitude: " +
-  //         position.coords.latitude +
-  //         "<br>Longitude: " +
-  //         position.coords.longitude
-  //     );
 });
