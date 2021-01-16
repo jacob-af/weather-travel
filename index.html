@@ -12,7 +12,12 @@
 </head>
 
 <body>
-    <header>AWESOME WEATHER DASHBOARD</header>
+    <header>
+        AWESOME WEATHER DASHBOARD
+    </header>
+    <div class='banner'>
+        AWESOME WEATHER DASHBOARD
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-3 search-col">
@@ -28,9 +33,18 @@
             </div>
             <div class="col-8">
                 <div class='today'>
-                    <div><span class='city'>City</span> <span class='date'></span> <img src='' class='icon'></div>
+                    <div class="row">
+                        <div class='col-8'>
+                            <div><span class='city'>City</span> </div>
+                            <div><span class='date'></span> </div>
+                        </div>
+                        <div class='col-4'>
+                            <img src='' class='icon'>
+                        </div>
+                    </div>
+
                     <div>Temperature: <span class="temp"></span><span>&#x2109;</span></div>
-                    <div>humidity: <span class="humidity"></span></div>
+                    <div>Humidity: <span class="humidity"></span></div>
                     <div>UV: <span class="badge uv-index"></span></div>
                 </div>
                 <h1>5 DAY FORECAST</h1>

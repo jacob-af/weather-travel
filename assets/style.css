@@ -7,16 +7,34 @@ body {
     background-size: cover;
     font-size: 16px;
     color: #1E1D3D;
+    filter: blur(1px);
 }
 
 header, h1 {
     font-size: 40px;
-    text-align: center;
     color: #FEFF38;
 }
 
+header {
+    text-align: center;
+}
+
+h1 {
+    position: absolute;
+    margin-top: 20px;
+    transform: rotate(20deg);
+}
+
+.banner {
+    color: #FEFF38;
+    font-size: 60px;
+    position: absolute;
+    top: 80px;
+    transform: rotate(-20deg);
+}
+
 .input-group {
-    transform: skew(5deg);
+    transform: skew(10deg);
     margin: 10px auto;
 }
 
@@ -26,7 +44,7 @@ header, h1 {
 
 .btn-holder {
     border: 1px solid#2F61AE;
-    transform: skew(5deg);
+    transform: skew(10deg);
     margin: 10px 0;
 }
 
@@ -36,31 +54,47 @@ header, h1 {
 }
 
 .main {
-    border: 10px solid #29cc91;
+    border: 10px solid #00cc91;
     margin: 5px;
-    background-color: #fA7bfa;
+    background-color: #ff00ff;
 }
 
-.col-3 {
+.search-col {
     font-size: 16px;
-    background-color: #F8C5F7;
-    border: 5px solid#2F61AE;
+    background-color: #fb8dfa;
+    border: 5px solid#850099;
     height: auto;
-    margin-right: 20px;
+    margin-top: 60px;
+    margin-right: 40px;
+    transform: skew(-5deg);
+    background-image: linear-gradient(to bottom right, #fb8dfa, #8fecff);
+    box-shadow: 5px 5px 10px 5px #00cc91;
 }
 
 .form {
-    padding: 5px auto;
+    padding: 10px auto;
     font-size: 20px;
 }
 
 .today, .card {
-    background-color: #C1EEF7;
-    border: 5px solid#856294;
+    background-color: #8fecff;
+    border: 5px solid#850099;
     margin: 5px auto;
     transform: skew(5deg);
+    background-image: linear-gradient(to bottom left, #fb8dfa, #8fecff);
+    box-shadow: 5px 5px 10px 5px #00cc91;
 }
 
 .today {
     font-size: 36px;
+}
+
+.card {
+    transform: rotate(20deg);
+    transform: skew(-5deg);
+}
+
+#five-day {
+    margin-top: 60px;
+    transform: rotate(-20deg);
 }

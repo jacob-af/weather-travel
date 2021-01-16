@@ -1,7 +1,9 @@
 const apiKey = "9a0309c7af4ea96821317cd0a1f455e1";
 
 $(document).ready(function () {
-  let savedSearches = JSON.parse(localStorage.getItem("savedsearches")) || [];
+  let savedSearches = JSON.parse(localStorage.getItem("savedsearches")) || [
+    "DETROIT",
+  ];
 
   const addButton = (search) => {
     let saveDiv = $("<div>").addClass("btn-holder");
@@ -16,21 +18,21 @@ $(document).ready(function () {
   const getWeatherData = (searchTerm) => {
     $("#five-day").empty();
     $.ajax({
-      url: `https://api.opencagedata.com/geocode/v1/json?q=${searchTerm}&key=002e3e542cd346bd8896826266e41685`,
+      url: `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=${apiKey}`,
       method: "GET",
     }).then(function (data) {
-      let lat = data.results[0].geometry.lat;
-      let long = data.results[0].geometry.lng;
+      console.log(data);
+      let lat = data.coord.lat;
+      let long = data.coord.lon;
+      $(".city").html(searchTerm);
       $.ajax({
         url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly&appid=${apiKey}`,
         method: "GET",
       }).then(function (response) {
         console.log(response);
-        $(".city").html(searchTerm);
         updateList(searchTerm);
         renderSingleDay(response.current);
         response.daily.splice(5);
-
         response.daily.map((day) => renderDays(day));
         savedSearches.splice(10);
         localStorage.setItem("savedsearches", JSON.stringify(savedSearches));
