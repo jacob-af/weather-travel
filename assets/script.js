@@ -59,7 +59,7 @@ $(document).ready(function () {
     $(".date").text(dayjs.unix(data.dt).format("dddd, MMMM D, YYYY h A"));
     $(".icon").attr(
       "src",
-      `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+      `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
     );
     $(".humidity").text(data.humidity);
     $(".uv-index").text(data.uvi);
@@ -71,7 +71,7 @@ $(document).ready(function () {
     let iconDiv = $("<div>").addClass("five-day-icon");
     let icon = $("<img>").attr(
       "src",
-      `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`
+      `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`
     );
     $(iconDiv).html(icon);
     let dateDiv = $("<div>")
