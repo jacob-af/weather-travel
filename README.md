@@ -27,7 +27,9 @@ Site is deployed at: [weather-travel](http://www.jacobaf.com/weather-travel/)
 - (assets)
   - script.js
   - style.css
-  - (screenshots)
+  - laserbg.jpg
+  - collapsed.png
+  - full-size.png
 
 ## Usage
 

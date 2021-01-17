@@ -69,10 +69,12 @@ $(document).ready(function () {
   const renderSingleDay = (data) => {
     $(".temp").text(Math.floor((data.temp - 273) * 1.8 + 33));
     $(".date").text(dayjs.unix(data.dt).format("dddd, MMMM D, YYYY h A"));
-    $(".icon").attr(
-      "src",
-      `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-    );
+    $(".icon")
+      .attr(
+        "src",
+        `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+      )
+      .attr("alt", data.weather[0].description);
     $(".humidity").text(data.humidity);
     $(".uv-index").text(data.uvi);
     setUV(data.uvi);
@@ -82,10 +84,12 @@ $(document).ready(function () {
   const renderDays = (day) => {
     let dayColumn = $("<card>").addClass("card singleDay");
     let iconDiv = $("<div>").addClass("five-day-icon");
-    let icon = $("<img>").attr(
-      "src",
-      `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`
-    );
+    let icon = $("<img>")
+      .attr(
+        "src",
+        `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`
+      )
+      .attr("alt", day.weather[0].description);
     $(iconDiv).html(icon);
     let dateDiv = $("<div>")
       .addClass("five-day-text")
