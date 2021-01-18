@@ -2,7 +2,7 @@
 
 ## About this page
 
-This bodacious page will show you the weather in any city you want! Just enter the city and hit search and the current weather as well as a 5 day forecast. The site relies on the [Open Weather Map API](https://openweathermap.org/)
+This bodacious page will show you the weather in any city you want! Just enter the city and hit search for the current weather as well as a 5 day forecast. The site relies on the [Open Weather Map API](https://openweathermap.org/)
 
 Site is deployed at: [weather-travel](http://www.jacobaf.com/weather-travel/)
 
