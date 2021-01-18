@@ -21,25 +21,28 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-3 search-col">
-                <div class="input-group">
-                    <div class="form-outline">
-                        <input type="search" id="searchField" class="form-control-lg" placeholder="Enter a city" />
+            <div class="col-5 col-sm-3">
+                <div class='search-col'>
+                    <div class="input-group">
+                        <div class="form-outline">
+                            <input type="search" id="searchField" class="form-control-lg" placeholder="Enter a city" />
+                        </div>
+                        <button type="button" class="btn btn-success" id="search-btn">
+                            SEARCH
+                        </button>
                     </div>
-                    <button type="button" class="btn btn-success" id="search-btn">
-                        SEARCH
-                    </button>
+
+                    <div class="search-btns"></div>
                 </div>
-                <div class="search-btns"></div>
             </div>
-            <div class="col-8">
+            <div class="col-6 col-sm-8">
                 <div class='today'>
                     <div class="row">
                         <div class='col-8'>
                             <div><span class='city'>City</span> </div>
                             <div><span class='date'></span> </div>
                         </div>
-                        <div class='col-4'>
+                        <div class='col-6 col-sm-4'>
                             <img src='https://openweathermap.org/img/wn/01d2x.png' class='icon' alt=''>
                         </div>
                     </div>

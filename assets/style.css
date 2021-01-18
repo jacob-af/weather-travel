@@ -114,7 +114,7 @@ h1 {
 
 /* Remove angular styling, other adjustments for smaller screen sizes */
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 576px) {
     h1 {
         transform: rotate(0deg);
     }
