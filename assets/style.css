@@ -36,6 +36,13 @@ h1 {
     transform: rotate(-20deg);
 }
 
+/* Search Area Styling*/
+
+.form {
+    padding: 10px auto;
+    font-size: 20px;
+}
+
 .input-group {
     transform: skew(10deg);
     margin: 10px auto;
@@ -67,10 +74,7 @@ h1 {
     box-shadow: 5px 5px 10px 5px #00cc91;
 }
 
-.form {
-    padding: 10px auto;
-    font-size: 20px;
-}
+/* Display Area */
 
 .today, .card {
     background-color: #8fecff;
@@ -108,6 +112,8 @@ h1 {
     color: #FEFF38;
 }
 
+/* Remove angular styling, other adjustments for smaller screen sizes */
+
 @media screen and (max-width: 520px) {
     h1 {
         transform: rotate(0deg);
@@ -118,8 +124,14 @@ h1 {
     .input-group {
         transform: skew(0deg);
     }
+    #searchField {
+        width: 100%;
+    }
     .btn-holder {
         transform: skew(0deg);
+    }
+    .saveBtn {
+        font-size: 12px;
     }
     .search-col {
         margin-top: 5px;
